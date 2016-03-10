@@ -24,14 +24,13 @@ passa=False
 # DISTRIBUZIONE DEI PARTECIPANTI
 for x in nomi:
         ordine=random.choice(range(partecipanti))
-        print (x)
         if passa==True:
             while scelti[ordine:ordine]=="":
                 ordine=random.choice(range(partecipanti))
-        scelti[ordine:ordine]=x
+        scelti[ordine:ordine]=[x]
         indice=indice+1
         passa=True
-print (scelti)
+
 # ORGANIZZAZIONE TORNEO
 scelta=0
 indice=0
@@ -40,9 +39,20 @@ barra=1
 for a in range(nu):
         giocatori=[]
         primo=scelti[indice]
-        giocatori[scelta:scelta]=primo
+        giocatori[scelta:scelta]=[primo]
         indice=indice+1
         scelta=1
+        secondo=scelti[indice]
+        giocatori[scelta:scelta]=[secondo]
+        indice=indice+1
+        scelta=0
+        if barra%2==0:
+            barr="\t /"
+        else:
+            barr= "\t \ "
+        printa= str(giocatori)
+        print (printa + barr )
+        barra=barra+1
         secondo=scelti[indice]
         giocatori[scelta:scelta]=secondo
         indice=indice+1

@@ -32,10 +32,13 @@ for x in nomi:
         passa=True
 
 # ORGANIZZAZIONE TORNEO
+
 scelta=0
 indice=0
 nu=partecipanti//2
 barra=1
+ciao=[]
+ciaon=0
 for a in range(nu):
         giocatori=[]
         primo=scelti[indice]
@@ -50,17 +53,18 @@ for a in range(nu):
             barr="\t /"
         else:
             barr= "\t \ "
-        printa= str(giocatori)
-        print (printa + barr )
+        printa= str(giocatori)+barr
+        print (printa)
         barra=barra+1
-        secondo=scelti[indice]
-        giocatori[scelta:scelta]=secondo
-        indice=indice+1
-        scelta=0
-        if barra%2==0:
-            barr=" /"
-        else:
-            barr= " \ "
-        printa= str(giocatori)
-        print (printa + barr )
-        barra=barra+1
+        ciao[ciaon:ciaon]=[printa]
+        ciaon=ciaon+ciaon
+# SALVATAGGIO
+salva=input("\nSalvare il torneo? [S]i / [N]o: ")
+scrivi=open("torneo.txt","w")
+if salva=="s" or "S":
+    for x in ciao:
+        scrivi.write(x)
+        scrivi.write("\n")
+    print ("Torneo salvato!")
+else:
+    pass
